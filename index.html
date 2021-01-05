@@ -128,12 +128,8 @@
 
   <body onload="document.getElementById('container1').style.display = 'block'">
     <section id="app">
-      <h1 class="centerText">
-        Caleb Irwin
-      </h1>
-      <p class="centerText">
-        Developer, Designer, Maker
-      </p>
+      <h1 class="centerText">Caleb Irwin</h1>
+      <p class="centerText">Developer, Designer, Maker</p>
       <svg
         id="logo"
         width="75%"
@@ -168,21 +164,21 @@
           margin: 0px;
         "
       >
-        <p style="font-size: 12px; color: lightgray; text-align: center;">
+        <p style="font-size: 12px; color: lightgray; text-align: center">
           <b
             >Site being made - © Caleb Irwin 2020
             <a
               @click="showContactForm = true"
-              style="color: white; text-decoration: underline;"
+              style="color: white; text-decoration: underline"
               >Contact</a
             ></b
           >
         </p>
       </div>
-      <section id="container1" style="display: none;">
+      <section id="container1" style="display: none">
         <div
           @load="document.getElementById('contact-form-back').style.display = 'block';"
-          style="display: block;"
+          style="display: block"
           id="contact-form-back"
           v-if="showContactForm"
         >
@@ -207,7 +203,7 @@
             <br />
             <textarea
               name="message"
-              style="width: 90%; padding: 15px; height: 300px;"
+              style="width: 90%; padding: 15px; height: 300px"
               class="input-box"
               placeholder="Message"
             ></textarea>
