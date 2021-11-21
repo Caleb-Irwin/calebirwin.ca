@@ -23,7 +23,7 @@
       />
     </a>
     <div class="flex-grow" />
-    <div class="h-16">
+    <div class="h-16 flex flex-col justify-center">
       <Buttom
         aria-label="Dark Mode Toggle"
         primaryColour={$darkMode ? '#FAFAFA' : '#18181B'}
