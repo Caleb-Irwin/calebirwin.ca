@@ -16,7 +16,7 @@
       <Burger primaryColour={$darkMode ? '#FAFAFA' : '#18181B'} />
     </button>
     <div class="flex-grow" />
-    <a aria-label="Home" href="/">
+    <a aria-label="Home" on:click={menuOpen.open} href="/">
       <Logo
         primaryColour={$darkMode ? '#FAFAFA' : '#18181B'}
         secondaryColour={$darkMode ? '#312E81' : '#A5B4FC'}
