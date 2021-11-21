@@ -3,6 +3,7 @@
   import Header from '$lib/header.svelte';
   import Footer from '$lib/footer.svelte';
   import darkMode from '$lib/darkModeStore';
+  import menuOpen from '$lib/menuStore';
 </script>
 
 <svelte:head>
@@ -12,9 +13,11 @@
 <div class="{$darkMode ? 'dark ' : ''}h-full font-display">
   <main>
     <Header />
-    <div class="flex-grow">
-      <slot />
-    </div>
+    {#if !$menuOpen}
+      <div class="flex-grow">
+        <slot />
+      </div>
+    {/if}
     <Footer />
   </main>
 </div>
