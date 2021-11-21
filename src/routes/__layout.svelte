@@ -9,7 +9,7 @@
   <title>Caleb Irwin</title>
 </svelte:head>
 
-<div class="{$darkMode ? 'dark ' : ''}h-full">
+<div class="{$darkMode ? 'dark ' : ''}h-full font-display">
   <main>
     <Header />
     <div class="flex-grow">
@@ -20,6 +20,9 @@
 </div>
 
 <style lang="postcss">
+  /* Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+
   main {
     /* display */
     @apply flex flex-col h-full;
