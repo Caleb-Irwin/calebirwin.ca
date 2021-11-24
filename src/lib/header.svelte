@@ -4,9 +4,20 @@
   import Logo from '$lib/headerUtils/logo.svelte';
   import Burger from '$lib/headerUtils/burgerIcon.svelte';
   import menuOpen from '$lib/menuStore';
+
+  import { onDestroy } from 'svelte';
+  import { navigating } from '$app/stores';
+
+  $: {
+    if ($navigating !== null) menuOpen.close();
+  }
 </script>
 
-<div class={$menuOpen ? 'h-screen ' + ($darkMode ? 'bg-accent-900' : 'bg-accent-300') : ''}>
+<div
+  class={$menuOpen
+    ? 'flex-grow flex flex-col ' + ($darkMode ? 'bg-accent-900' : 'bg-accent-300')
+    : ''}
+>
   <div class="flex h-16 m-4">
     <button
       on:click={menuOpen.toggle}
@@ -16,7 +27,7 @@
       <Burger primaryColour={$darkMode ? '#FAFAFA' : '#18181B'} />
     </button>
     <div class="flex-grow" />
-    <a aria-label="Home" on:click={menuOpen.open} href="/">
+    <a aria-label="Home" href="/" on:click={menuOpen.close}>
       <Logo
         primaryColour={$darkMode ? '#FAFAFA' : '#18181B'}
         secondaryColour={$darkMode ? '#312E81' : '#A5B4FC'}
@@ -33,6 +44,14 @@
   </div>
 
   {#if $menuOpen}
-    <div>Menu</div>
+    <div class="flex-grow flex flex-row justify-center items-center">
+      <div class="border-2">
+        <h2 class="text-5xl text-center">Menu</h2>
+        <div class="flex flex-col" on:click={menuOpen.close}>
+          <a href="/contact">Contact</a>
+          <a href="/about">About</a>
+        </div>
+      </div>
+    </div>
   {/if}
 </div>
