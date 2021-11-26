@@ -45,9 +45,9 @@
 
   {#if $menuOpen}
     <div class="flex-grow flex flex-row justify-center items-center">
-      <div class="border-2">
-        <h2 class="text-5xl text-center">Menu</h2>
-        <div class="flex flex-col" on:click={menuOpen.close}>
+      <div>
+        <h2 class="text-6xl text-center p-1">Menu</h2>
+        <div id="menu-inner" class="flex flex-col" on:click={menuOpen.close}>
           <a href="/contact">Contact</a>
           <a href="/about">About</a>
         </div>
@@ -55,3 +55,9 @@
     </div>
   {/if}
 </div>
+
+<style lang="postcss">
+  #menu-inner > a {
+    @apply text-4xl underline text-center p-0;
+  }
+</style>
