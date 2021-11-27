@@ -14,7 +14,7 @@
   <main>
     <Header />
     {#if !$menuOpen}
-      <div class="flex-grow">
+      <div class="flex-grow flex">
         <slot />
       </div>
     {/if}
