@@ -2,7 +2,7 @@
   import darkMode from '$lib/darkModeStore';
   import Buttom from '$lib/headerUtils/darkModeButton.svelte';
   import Logo from '$lib/headerUtils/logo.svelte';
-  import Burger from '$lib/headerUtils/burgerIcon.svelte';
+  import MenuLogo from '$lib/headerUtils/menuIcon.svelte';
   import menuOpen from '$lib/menuStore';
 
   import { onDestroy } from 'svelte';
@@ -24,7 +24,7 @@
       aria-label="Menu"
       class="w-16 h-16 flex flex-row justify-center items-center"
     >
-      <Burger primaryColour={$darkMode ? '#FAFAFA' : '#18181B'} />
+      <MenuLogo primaryColour={$darkMode ? '#FAFAFA' : '#18181B'} />
     </button>
     <div class="flex-grow" />
     <a aria-label="Home" href="/" on:click={menuOpen.close}>
