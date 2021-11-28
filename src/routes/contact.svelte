@@ -29,12 +29,14 @@
         class="bg-primary-200 dark:bg-primary-800"
         id="message"
         name="message"
-        cols="30"
+        rows="10"
         required
       />
     </p>
     <p>
-      <button class="bg-accent-200 dark:bg-accent-900">Send</button>
+      <button class="bg-accent-200 dark:bg-accent-900 hover:bg-accent-400 dark:hover:bg-accent-700"
+        >Send</button
+      >
     </p>
   </form>
 </div>
@@ -47,6 +49,6 @@
   input,
   textarea,
   button {
-    @apply p-2 w-full;
+    @apply p-2 w-full rounded;
   }
 </style>
