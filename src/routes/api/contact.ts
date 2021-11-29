@@ -31,7 +31,7 @@ export const post = async (req: Request): Promise<Response> => {
         }
       };
     } else {
-      throw Error('Failed! (static form submission)');
+      throw Error('Failed! (static form submission)\n' + JSON.stringify(json));
     }
   } catch (err) {
     console.log(err);
