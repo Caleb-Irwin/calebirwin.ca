@@ -11,19 +11,20 @@
 </script>
 
 <div class="flex-grow flex flex-col justify-center items-center">
+  {#if $page.query.has('failed')}
+    <div class="flex flex-col justify-center items-center">
+      <h1 class="text-4xl lg:text-5xl">&#10006; Failed</h1>
+      <p class="text-2xl ">Maybe try again?</p>
+    </div>
+  {:else if $page.query.has('submitted')}
+    <div class="flex flex-col justify-center items-center">
+      <h1 class="text-4xl lg:text-5xl">&#10004; Submitted</h1>
+      <a href="/" class=" text-2xl underline">Home</a>
+    </div>
+  {/if}
+  <div class="flex-grow" />
   <form class="max-w-screen-sm w-3/4" action="/api/contact" method="POST">
-    {#if $page.query.has('failed')}
-      <div class="flex flex-col justify-center items-center">
-        <h1 class="text-5xl">&#10006; Failed</h1>
-        <p class="text-2xl ">Maybe try again?</p>
-      </div>
-    {:else if $page.query.has('submitted')}
-      <div class="flex-grow flex flex-col justify-center items-center">
-        <h1 class="text-5xl">&#10004; Submitted</h1>
-        <a href="/" class=" text-2xl underline">Home</a>
-      </div>
-    {/if}
-    <h1 class="text-5xl">Contact</h1>
+    <h1 class="text-5xl text-center lg:text-left">Contact</h1>
     <p>
       <label for="name">Name</label><br />
       <input
@@ -65,6 +66,7 @@
       >
     </p>
   </form>
+  <div class="flex-grow" />
 </div>
 
 <style lang="postcss">
