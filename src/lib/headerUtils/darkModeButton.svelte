@@ -5,7 +5,7 @@
     secondaryColour: string = '#FFFFFF';
 </script>
 
-<button on:click={darkMode.toggle}>
+<button aria-label="Dark Mode Toggle" on:click={darkMode.toggle}>
   {#if $darkMode}
     <svg
       width="48"
