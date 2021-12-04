@@ -18,21 +18,21 @@
   .dark {
     -webkit-text-stroke: 1.5px white;
     text-stroke: 1.5px white;
-    animation: nameDark 5s linear 2s infinite alternate;
+    animation: nameDark 10s linear 0s infinite normal;
   }
   .light {
     -webkit-text-stroke: 1.5px black;
     text-stroke: 1.5px black;
-    animation: nameLight 5s linear 2s infinite alternate;
+    animation: nameLight 10s linear 0s infinite normal;
   }
   @keyframes nameDark {
     0% {
       background-color: #312e81;
     }
-    50% {
+    25% {
       background-color: #18181b;
     }
-    75% {
+    50% {
       background-color: #312e81;
     }
     100% {
@@ -46,9 +46,9 @@
     50% {
       background-color: #fafafa;
     }
-    75% {
+    /* 50% {
       background-color: #a5b4fc;
-    }
+    } */
     100% {
       background-color: #a5b4fc;
     }
