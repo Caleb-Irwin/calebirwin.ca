@@ -9,10 +9,7 @@
 <style lang="postcss">
   h1 {
     color: #00000000;
-    /* background: linear-gradient(to right, #18181b 0%, white 100%); */
     -webkit-background-clip: text;
-    /* -webkit-text-fill-color: transparent; */
-    /* animation: nameDark 5s linear 2s infinite alternate; */
   }
 
   .dark {

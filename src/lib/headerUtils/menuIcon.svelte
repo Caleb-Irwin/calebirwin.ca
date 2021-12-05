@@ -19,6 +19,7 @@
       rx="1"
       transform="rotate(-45 1 32.8198)"
       stroke={primaryColour}
+      fill={primaryColour}
       stroke-width="2"
     />
     <rect
@@ -29,6 +30,7 @@
       rx="1"
       transform="rotate(45 2.41422 1)"
       stroke={primaryColour}
+      fill={primaryColour}
       stroke-width="2"
     />
   </svg>
