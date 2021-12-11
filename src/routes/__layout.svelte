@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { navigating } from '$app/stores';
+
   import '../app.pcss';
   import Header from '$lib/header.svelte';
   import Footer from '$lib/footer.svelte';
+  import Spinner from '$lib/spinner.svelte';
   import darkMode from '$lib/darkModeStore';
   import menuOpen from '$lib/menuStore';
 </script>
@@ -15,7 +18,11 @@
     <Header />
     {#if !$menuOpen}
       <div class="flex-grow flex">
-        <slot />
+        {#if $navigating === null}
+          <slot />
+        {:else}
+          <Spinner />
+        {/if}
       </div>
     {/if}
     <Footer />
