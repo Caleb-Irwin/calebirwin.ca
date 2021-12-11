@@ -1,5 +1,4 @@
 <script>
-  import darkMode from '$lib/darkModeStore';
   import Name from '$lib/name/name.svelte';
 </script>
 

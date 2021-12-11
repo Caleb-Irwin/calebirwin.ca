@@ -5,7 +5,6 @@
   import MenuLogo from '$lib/headerUtils/menuIcon.svelte';
   import menuOpen from '$lib/menuStore';
 
-  import { onDestroy } from 'svelte';
   import { navigating } from '$app/stores';
 
   $: {

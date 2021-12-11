@@ -6,8 +6,8 @@ function createMode() {
   const stored = (browser && JSON.parse(localStorage.getItem('darkMode'))) ?? prefersDarkMode;
   const { subscribe, set, update } = writable(stored);
 
-  const store = (v) => {
-    if (v !== prefersDarkMode) browser && localStorage.setItem('darkMode', v);
+  const store = (v: boolean) => {
+    if (v !== prefersDarkMode) browser && localStorage.setItem('darkMode', JSON.stringify(v));
     else browser && localStorage.removeItem('darkMode');
   };
   return {
