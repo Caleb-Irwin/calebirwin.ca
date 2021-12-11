@@ -1,9 +1,11 @@
 <script>
   import darkMode from '$lib/darkModeStore';
+  import Name from '$lib/name/name.svelte';
 </script>
 
 <div class="flex-grow flex flex-col justify-center items-center">
-  <h1 class="text-8xl text-center font-black {$darkMode ? 'dark' : 'light'}">Caleb Irwin</h1>
+  <!-- <h1 class="text-8xl text-center font-black {$darkMode ? 'dark' : 'light'}">Caleb Irwin</h1> -->
+  <Name />
 </div>
 
 <style lang="postcss">
