@@ -44,7 +44,13 @@ export const post = async (req: Request): Promise<Response> => {
         location: `/contact?failed&name=${encodeURIComponent(
           body.get('name')
         )}&email=${encodeURIComponent(body.get('email'))}&message=${encodeURIComponent(
-          err + '\n' + import.meta.env.VITE_LF_SOURCE_TOKEN + '\n' + body.get('message')
+          err +
+            '\n' +
+            import.meta.env.VITE_LF_SOURCE_TOKEN +
+            '\n' +
+            import.meta.env.VITE_STATIC_FORMS_API_KEY +
+            '\n' +
+            body.get('message')
         )}`
       }
     };
