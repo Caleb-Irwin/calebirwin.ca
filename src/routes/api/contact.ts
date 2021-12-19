@@ -1,5 +1,6 @@
 import type { Request, Response } from '@sveltejs/kit';
 import type { ReadOnlyFormData } from '@sveltejs/kit/types/helper';
+import { logger } from '$lib/logger';
 
 export const post = async (req: Request): Promise<Response> => {
   const body = req.body as ReadOnlyFormData;
@@ -12,8 +13,10 @@ export const post = async (req: Request): Promise<Response> => {
       honeypot: '', // if any value received in this field, form submission will be ignored.
       message: body.get('message'),
       replyTo: '@', // this will set replyTo of email to email address entered in the form
-      accessKey: process.env['STATIC_FORMS_API_KEY'] // get your access key from https://www.staticforms.xyz
+      accessKey: import.meta.env.VITE_STATIC_FORMS_API_KEY // get your access key from https://www.staticforms.xyz
     };
+
+    logger('Form Submission!', contact);
 
     const res = await fetch('https://api.staticforms.xyz/submit', {
       method: 'POST',
