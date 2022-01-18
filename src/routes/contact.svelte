@@ -3,18 +3,18 @@
   let name = '',
     email = '',
     message = '';
-  if ($page.query.has('failed')) {
-    name = $page.query.get('name');
-    email = $page.query.get('email');
-    message = $page.query.get('message');
+  if ($page.url.searchParams.has('failed')) {
+    name = $page.url.searchParams.get('name');
+    email = $page.url.searchParams.get('email');
+    message = $page.url.searchParams.get('message');
   }
 </script>
 
 <div class="flex-grow flex flex-col justify-center items-center">
   <div class="flex-grow flex">
-    {#if $page.query.has('failed') || $page.query.has('submitted')}
+    {#if $page.url.searchParams.has('failed') || $page.url.searchParams.has('submitted')}
       <div class="flex flex-col justify-center items-center">
-        {#if $page.query.has('failed')}
+        {#if $page.url.searchParams.has('failed')}
           <h1 class="text-4xl lg:text-5xl">&#10006; Failed</h1>
           <p class="text-2xl ">Maybe try again?</p>
         {:else}
