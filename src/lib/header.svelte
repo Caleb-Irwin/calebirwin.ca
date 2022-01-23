@@ -5,7 +5,15 @@
   import MenuLogo from '$lib/headerUtils/menuIcon.svelte';
   import menuOpen from '$lib/menuStore';
 
-  import { navigating } from '$app/stores';
+  import { navigating, page } from '$app/stores';
+  import { browser } from '$app/env';
+
+  $: path = '/menu?url=' + $page.url.pathname;
+  $: {
+    if ($page.url.pathname === '/menu')
+      path =
+        $page.url.searchParams.get('url')?.length > 0 ? $page.url.searchParams.get('url') : '/';
+  }
 
   $: {
     if ($navigating !== null) menuOpen.close();
@@ -18,13 +26,21 @@
     : ''}
 >
   <div class="flex h-16 m-4">
-    <button
-      on:click={menuOpen.toggle}
-      aria-label="Menu"
-      class="w-16 h-16 flex flex-row justify-center items-center"
-    >
-      <MenuLogo primaryColour={$darkMode ? '#FAFAFA' : '#18181B'} />
-    </button>
+    <div class="h-16 w-16 grid place-items-center">
+      {#if $page.url.pathname !== '/menu' && browser}
+        <button
+          on:click={menuOpen.toggle}
+          aria-label="Menu"
+          class="w-16 h-16 grid place-items-center"
+        >
+          <MenuLogo primaryColour={$darkMode ? '#FAFAFA' : '#18181B'} />
+        </button>
+      {:else}
+        <a href={path} aria-label="Menu" class="w-16 h-16 grid place-items-center">
+          <MenuLogo primaryColour={$darkMode ? '#FAFAFA' : '#18181B'} />
+        </a>
+      {/if}
+    </div>
     <div class="flex-grow" />
     <a aria-label="Home" href="/" on:click={menuOpen.close}>
       <Logo
@@ -33,7 +49,7 @@
       />
     </a>
     <div class="flex-grow" />
-    <div class="h-16 flex flex-col justify-center">
+    <div class="h-16 w-16 grid place-items-center">
       <Buttom
         primaryColour={$darkMode ? '#FAFAFA' : '#18181B'}
         secondaryColour={$darkMode ? '#312E81' : '#A5B4FC'}

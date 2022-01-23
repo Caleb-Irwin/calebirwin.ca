@@ -1,3 +1,17 @@
+<script context="module" lang="ts">
+  import type { Load } from '@sveltejs/kit';
+  import menuStore from '$lib/menuStore';
+
+  export const load: Load = async ({ url }) => {
+    if (url.pathname === '/menu') {
+      menuStore.open();
+    } else {
+      menuStore.close();
+    }
+    return {};
+  };
+</script>
+
 <script lang="ts">
   import { navigating } from '$app/stores';
 
