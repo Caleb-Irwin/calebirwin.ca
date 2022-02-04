@@ -1,9 +1,8 @@
-import type { Request, Response } from '@sveltejs/kit';
-import type { ReadOnlyFormData } from '@sveltejs/kit/types/helper';
+import type { RequestHandler } from '@sveltejs/kit';
 import { logger } from '$lib/logger';
 
-export const post = async (req: Request): Promise<Response> => {
-  const body = req.body as ReadOnlyFormData;
+export const post: RequestHandler = async ({ request }) => {
+  const body = await request.formData();
 
   try {
     const contact = {
@@ -42,9 +41,9 @@ export const post = async (req: Request): Promise<Response> => {
       status: 302,
       headers: {
         location: `/contact?failed&name=${encodeURIComponent(
-          body.get('name')
-        )}&email=${encodeURIComponent(body.get('email'))}&message=${encodeURIComponent(
-          body.get('message')
+          body.get('name') as string
+        )}&email=${encodeURIComponent(body.get('email') as string)}&message=${encodeURIComponent(
+          body.get('message') as string
         )}`
       }
     };

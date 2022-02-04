@@ -11,9 +11,9 @@
   };
 </script>
 
-<script>
-  export let title;
-  export let message;
+<script lang="ts">
+  export let title: string;
+  export let message: string;
 </script>
 
 <div class="flex-grow">
