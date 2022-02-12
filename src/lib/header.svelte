@@ -42,7 +42,7 @@
       {/if}
     </div>
     <div class="flex-grow" />
-    <a aria-label="Home" href="/" on:click={menuOpen.close}>
+    <a aria-label="Home" href="/" sveltekit:prefetch on:click={menuOpen.close}>
       <Logo
         primaryColour={$darkMode ? '#FAFAFA' : '#18181B'}
         secondaryColour={$darkMode ? '#312E81' : '#A5B4FC'}
@@ -62,8 +62,8 @@
       <div>
         <h2 class="text-6xl text-center p-1">Menu</h2>
         <div id="menu-inner" class="flex flex-col" on:click={menuOpen.close}>
-          <a href="/contact">Contact</a>
-          <a href="/about">About</a>
+          <a sveltekit:prefetch href="/contact">Contact</a>
+          <a sveltekit:prefetch href="/about">About</a>
         </div>
       </div>
     </div>
