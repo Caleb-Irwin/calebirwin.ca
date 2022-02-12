@@ -5,7 +5,7 @@
   export const load: Load = async ({ url }) => {
     if (url.pathname === '/menu') {
       menuStore.open();
-    } else {
+    } else if (url.searchParams.has('noScript')) {
       menuStore.close();
     }
     return {};
@@ -14,7 +14,6 @@
 
 <script lang="ts">
   import { navigating } from '$app/stores';
-
   import '../app.pcss';
   import Header from '$lib/header.svelte';
   import Footer from '$lib/footer.svelte';

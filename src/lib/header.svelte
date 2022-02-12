@@ -1,12 +1,13 @@
 <script>
   import darkMode from '$lib/darkModeStore';
-  import Buttom from '$lib/headerUtils/darkModeButton.svelte';
+  import DarkModeButtom from '$lib/headerUtils/darkModeButton.svelte';
   import Logo from '$lib/headerUtils/logo.svelte';
   import MenuLogo from '$lib/headerUtils/menuIcon.svelte';
   import menuOpen from '$lib/menuStore';
 
-  import { navigating, page } from '$app/stores';
+  import { page } from '$app/stores';
   import { browser } from '$app/env';
+  import { onMount } from 'svelte';
 
   $: path = '/menu?url=' + $page.url.pathname;
   $: {
@@ -14,10 +15,8 @@
       path =
         $page.url.searchParams.get('url')?.length > 0 ? $page.url.searchParams.get('url') : '/';
   }
-
-  $: {
-    if ($navigating !== null) menuOpen.close();
-  }
+  let noScript = true;
+  onMount(() => (noScript = false));
 </script>
 
 <div
@@ -42,7 +41,12 @@
       {/if}
     </div>
     <div class="flex-grow" />
-    <a aria-label="Home" href="/" sveltekit:prefetch on:click={menuOpen.close}>
+    <a
+      aria-label="Home"
+      sveltekit:prefetch
+      href={'/' + (noScript ? '?noScript' : '')}
+      on:click={menuOpen.close}
+    >
       <Logo
         primaryColour={$darkMode ? '#FAFAFA' : '#18181B'}
         secondaryColour={$darkMode ? '#312E81' : '#A5B4FC'}
@@ -50,7 +54,8 @@
     </a>
     <div class="flex-grow" />
     <div class="h-16 w-16 grid place-items-center">
-      <Buttom
+      <DarkModeButtom
+        {noScript}
         primaryColour={$darkMode ? '#FAFAFA' : '#18181B'}
         secondaryColour={$darkMode ? '#312E81' : '#A5B4FC'}
       />
@@ -62,8 +67,8 @@
       <div>
         <h2 class="text-6xl text-center p-1">Menu</h2>
         <div id="menu-inner" class="flex flex-col" on:click={menuOpen.close}>
-          <a sveltekit:prefetch href="/contact">Contact</a>
-          <a sveltekit:prefetch href="/about">About</a>
+          <a sveltekit:prefetch href={'/contact' + (noScript ? '?noScript' : '')}>Contact</a>
+          <a sveltekit:prefetch href={'/about' + (noScript ? '?noScript' : '')}>About</a>
         </div>
       </div>
     </div>
