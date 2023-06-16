@@ -14,7 +14,7 @@
 <div class="flex-grow flex flex-col justify-center items-center">
   <h1 class="text-5xl">About</h1>
   <p class="p-4">
-    Caleb Irwin is a {age} year old developer who has been writing code since he was 10. (Extended bio
-    comming soon)
+    Caleb Irwin is a {age} year old developer who has been writing code since he was 10. <br/> [extended bio
+    coming soon]
   </p>
 </div>
