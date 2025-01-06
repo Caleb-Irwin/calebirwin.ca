@@ -67,6 +67,7 @@
       <div>
         <h2 class="text-6xl text-center p-1">Menu</h2>
         <div id="menu-inner" class="flex flex-col" on:click={menuOpen.close}>
+          <a sveltekit:prefetch href={'/' + (noScript ? '?noScript' : '')}>Home</a>
           <a sveltekit:prefetch href={'/contact' + (noScript ? '?noScript' : '')}>Contact</a>
           <a sveltekit:prefetch href={'/about' + (noScript ? '?noScript' : '')}>About</a>
         </div>
