@@ -25,7 +25,7 @@ export const post: RequestHandler = async ({ request }) => {
 
     const json = await res.json();
 
-    if (json.success) {
+    if (json.success || res.status === 200) {
       return {
         status: 302,
         headers: {
